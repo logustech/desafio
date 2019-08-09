@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Edit</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+	<h1>Edit</h1>
+	<form method="POST" action="/edit">
+		Teams : <input type="text" name="teams" required="" value="{{game.teams}}" /><br /><br />
+		Away : <input type="text" name="away" required="" value="{{game.away}}" /><br /><br />
+		Home : <input type="text" name="home" required="" value="{{game.home}}" /><br /><br />
+		Date : <input type="text" name="date" required="" value="{{game.date}}" /><br /><br />
+		Email : <input type="text" name="email" required="" /><br /><br />
+		<input type="submit" name="submit" value="Save">
+	</form>
+</body>
+</html>
