@@ -1,6 +1,7 @@
 from flask import Blueprint, Flask, render_template, request
 from flaskext.mysql import MySQL
 from app.database import Database
+import requests
 import json
 
 db = Database()
@@ -34,7 +35,9 @@ def send_game(request):
    games.append(create_game(request))
    my_dict["data"] = games
    my_dict["email"] = request.form['email']
-   print(json.dumps(my_dict))
+   game_json = json.dumps(my_dict)
+   url = 'http://desafio.logus.tech/desafio'
+   requests.post(url, data = game_json)
    
 def create_game(request):
    my_dict = {}
