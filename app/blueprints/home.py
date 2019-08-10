@@ -41,6 +41,7 @@ def send_game(request):
    
 def create_game(request):
    my_dict = {}
+   my_dict["id"] = request.form['game_id']
    my_dict["teams"] = request.form['teams']
    my_dict["home"] = request.form['home']
    my_dict["away"] = request.form['away']
