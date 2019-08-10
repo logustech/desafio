@@ -7,6 +7,9 @@ import json
 db = Database()
 bp_app = Blueprint("home", __name__)
 
+def configure(app):
+   app.register_blueprint(bp_app)
+
 @bp_app.route("/")
 def index():
    return render_index()
@@ -21,12 +24,9 @@ def edit():
       game = db.find_game_by_id(game_id)
       return render_template('edit.html', game = game)
 
-def configure(app):
-   app.register_blueprint(bp_app)
-   
 def render_index():
    games = db.events_list()
-   return render_template('index.html', result = games)
+   return render_template('index.html', games = games)
 
 def send_game(request):
    send_dict = {} 

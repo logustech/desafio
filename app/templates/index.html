@@ -26,7 +26,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            {% for game in result %}
+                            {% for game in games %}
                                 <tr>
                                     <th scope="row">{{ game.teams }}</th>
                                     <td class="{{ 'table-success' if game.away > game.home else 'table-danger' }} text-center"> {{game.away }} </td>
