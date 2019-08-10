@@ -14,11 +14,7 @@ def home():
 @bp_app.route("/edit", methods=['POST','GET'])
 def edit():
    if request.method == 'POST':
-      home=request.form['home']
-      teams=request.form['teams']
-      away=request.form['away']
-      date=request.form['date']
-      email=request.form['email']
+      send_game(request)
       return render_index()
    else:
       game_id = request.args.get('game_id')
@@ -31,3 +27,21 @@ def configure(app):
 def render_index():
    games = db.events_list()
    return render_template('index.html', result = games)
+
+def send_game(request):
+   my_dict = {} 
+   games = []
+   games.append(create_game(request))
+   my_dict["data"] = games
+   my_dict["email"] = request.form['email']
+   print(json.dumps(my_dict))
+   
+def create_game(request):
+   my_dict = {}
+   my_dict["teams"] = request.form['teams']
+   my_dict["home"] = request.form['home']
+   my_dict["away"] = request.form['away']
+   my_dict["date"] = request.form['date']
+   return my_dict
+   
+   
