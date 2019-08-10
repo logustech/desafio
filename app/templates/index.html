@@ -20,8 +20,8 @@
     {% for game in result %}
         <tr>
             <th scope="row">{{ game.teams }}</th>
-            <td> {{game.away }} </td>
-            <td> {{game.home }} </td>
+            <td class="{{ 'table-success' if game.away > game.home else 'table-danger' }}"> {{game.away }} </td>
+            <td class="{{ 'table-success' if game.home > game.away else 'table-danger' }}"> {{game.home }} </td>
             <td> {{game.date }} </td>
             <td> 
                 <form action="{{ url_for('home.edit') }}" method="GET">
