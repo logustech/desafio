@@ -8,8 +8,7 @@ db = Database()
 bp_app = Blueprint("home", __name__)
 
 @bp_app.route("/")
-@bp_app.route("/home")
-def home():
+def index():
    return render_index()
 
 @bp_app.route("/edit", methods=['POST','GET'])
@@ -30,22 +29,22 @@ def render_index():
    return render_template('index.html', result = games)
 
 def send_game(request):
-   my_dict = {} 
+   send_dict = {} 
    games = []
    games.append(create_game(request))
-   my_dict["data"] = games
-   my_dict["email"] = request.form['email']
-   game_json = json.dumps(my_dict)
+   send_dict["data"] = games
+   send_dict["email"] = request.form['email']
+   game_json = json.dumps(send_dict)
    url = 'http://desafio.logus.tech/desafio'
    requests.post(url, data = game_json)
    
 def create_game(request):
-   my_dict = {}
-   my_dict["id"] = request.form['game_id']
-   my_dict["teams"] = request.form['teams']
-   my_dict["home"] = request.form['home']
-   my_dict["away"] = request.form['away']
-   my_dict["date"] = request.form['date']
-   return my_dict
+   game_dict = {}
+   game_dict["id"] = request.form['game_id']
+   game_dict["teams"] = request.form['teams']
+   game_dict["home"] = request.form['home']
+   game_dict["away"] = request.form['away']
+   game_dict["date"] = request.form['date']
+   return game_dict
    
    
