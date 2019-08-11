@@ -5,3 +5,4 @@ itsdangerous>=0.24
 WTForms>=2.2.1
 requests>=2.22.0
 pymysql>=0.9.3
+flask-mysql>=1.4.0
