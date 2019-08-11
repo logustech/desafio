@@ -23,6 +23,15 @@ def edit():
       game_id = request.args.get('game_id')
       game = db.find_game_by_id(game_id)
       return render_template('edit.html', game = game)
+   
+   
+@bp_app.route("/create", methods=['POST','GET'])
+def create():
+   if request.method == 'GET' :
+      return render_template('create.html')
+   else:
+      send_game(request)
+      return render_index()
 
 def render_index():
    games = db.events_list()
@@ -37,14 +46,12 @@ def send_game(request):
    game_json = json.dumps(send_dict)
    url = 'http://desafio.logus.tech/desafio'
    requests.post(url, data = game_json)
-   
+
 def create_game(request):
    game_dict = {}
-   game_dict["id"] = request.form['game_id']
+   game_dict["id"] = request.form['game_id'] 
    game_dict["teams"] = request.form['teams']
    game_dict["home"] = request.form['home']
    game_dict["away"] = request.form['away']
    game_dict["date"] = request.form['date']
    return game_dict
-   
-   
