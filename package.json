@@ -1,0 +1,16 @@
+{
+  "name": "desafio-logustech",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Thiago Silva",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.19.0",
+    "mysql2": "^1.6.5",
+    "sequelize": "^5.16.0"
+  }
+}
