@@ -1,0 +1,8 @@
+{
+    "host": "desafio.logus.tech",
+    "database": "desafio",
+    "user": "desafio",
+    "password": "desafio",
+    "port": 3306,
+    "dialect": "mysql"
+}
